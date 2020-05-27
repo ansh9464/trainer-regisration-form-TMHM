@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>Login Form</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="login.css">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ <script >
+   function getfocustxt(){
+     document.getElementById("fname").focus();
+    
+   }
+ </script>
+</head>
+<body onload="getfocustxt();">
+ <div class="wrapper">
+    <div class= "title">
+      Registration page
+       <div id="error_message">
+    </div>
+    <form method="" id="form" onsubmit="return validate()">
+     <div class="form">
+       <div class="inputfield">
+          <label>First Name</label>
+          <input type="text" class="input" id="fname" required="">
+       </div>  
+        <div class="inputfield">
+          <label>Last Name</label>
+          <input type="text" class="input" id="lname" required="">
+       </div>  
+       <div class="inputfield">
+          <label>Password</label>
+          <input type="password" class="input" id="pass" required="">
+       </div>  
+      <div class="inputfield">
+          <label>Confirm Password</label>
+          <input type="password" class="input" id="cpass" required="">
+       </div> 
+       
+        <div class="inputfield">
+          <label>Email Address</label>
+          <input type="text" class="input" id="email" required="">
+       </div> 
+      <div class="inputfield">
+          <label>Phone Number</label>
+          <input type="text" class="input" id="phone" required="">
+       </div>  
+     <div class="button">
+        <input type="button" value="register" onclick="validate()">
+    </div>
+     <div class="inputfields">
+       <label> By clicking on Register you agree to terms and condition </label>
+     </div>
+   </div>
+</form>
+</body>
+<script>
+  function validate(){
+  var fname = document.getElementById("fname").value;  
+  var lname = document.getElementById("lname").value;
+  var pass =document.getElementById("pass").value;
+  var cpass =document.getElementById("cpass").value;
+  var phone = document.getElementById("phone").value;
+  var email = document.getElementById("email").value;
+
+  var error_message = document.getElementById("error_message");
+  
+  error_message.style.padding = "10px";
+  
+  var text;
+  
+  if(fname.length < 2){
+    text = "Please Enter valid Name";
+    error_message.innerHTML = text;
+    return false;
+  }
+  else{
+    text="";
+    error_message.innerHTML = text;
+
+  }
+  if(lname.length < 2){
+    text = "Please Enter valid Name";
+    error_message.innerHTML = text;
+    return false;
+  }
+   else{
+    text="";
+    error_message.innerHTML = text;
+
+  }
+  if(pass.length <8){
+    text = "Please Enter 8 characters";
+    error_message.innerHTML = text;
+    return false;
+  }
+   else{
+    text="";
+    error_message.innerHTML = text;
+
+  }
+  if(cpass.length <8){
+    text = "Please enter same password";
+    error_message.innerHTML = text;
+    return false;
+  }
+   else {
+    text="";
+    error_message.innerHTML = text;
+
+  }
+  if (pass.value != cpass.value)  {
+    text="password not matching"
+    error_message.innerHTML=text;
+    return false;
+  }
+  else{
+    text="";
+    error_message.innerHTML = text;
+
+  }
+  if(isNaN(phone) || phone.length != 10){
+    text = "Please Enter valid Phone Number";
+    error_message.innerHTML = text;
+    return false;
+  }
+   else{
+    text="";
+    error_message.innerHTML = text;
+
+  }
+  if(email.indexOf("@") == -1 || email.length < 6){
+    text = "Please Enter valid Email";
+    error_message.innerHTML = text;
+    return false;
+  }
+   else{
+    text="";
+    error_message.innerHTML = text;
+
+  }
+   swal("THANK YOU")
+  document.getElementById("fname").value = "";
+  document.getElementById("lname").value = "";
+  document.getElementById("pass").value = "";
+  document.getElementById("cpass").value = "";
+  document.getElementById("phone").value = "";
+  document.getElementById("email").value = "";
+}
+
+</script>
+</html>
+   
+ 
