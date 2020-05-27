@@ -66,6 +66,8 @@
   var phone = document.getElementById("phone").value;
   var email = document.getElementById("email").value;
 
+  console.log(fname);
+
   var error_message = document.getElementById("error_message");
   
   error_message.style.padding = "10px";
@@ -112,7 +114,7 @@
     error_message.innerHTML = text;
 
   }
-  if (pass.value != cpass.value)  {
+  if (pass != cpass)  {
     text="password not matching"
     error_message.innerHTML=text;
     return false;
@@ -150,6 +152,7 @@
   document.getElementById("phone").value = "";
   document.getElementById("email").value = "";
 }
+
 
 </script>
 </html>
